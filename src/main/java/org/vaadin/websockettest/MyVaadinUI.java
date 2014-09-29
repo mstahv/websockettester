@@ -14,6 +14,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.annotation.WebFilter;
 import org.vaadin.maddon.label.Header;
 import org.vaadin.maddon.layouts.MVerticalLayout;
 
@@ -27,6 +28,10 @@ public class MyVaadinUI extends UI implements Button.ClickListener {
     @WebServlet(value = "/*", asyncSupported = true)
     @VaadinServletConfiguration(productionMode = false, ui = MyVaadinUI.class)
     public static class Servlet extends VaadinServlet {
+    }
+
+    @WebFilter(urlPatterns = "/*")
+    public static class CompressionFilter extends net.sf.ehcache.constructs.web.filter.GzipFilter {
     }
 
     @Override
