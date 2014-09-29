@@ -39,7 +39,7 @@ public class MyVaadinUI extends UI implements Button.ClickListener {
         if (request.getParameter("debug") == null) {
             // "force" debug mode
             Page.getCurrent().setLocation(
-                    Page.getCurrent().getLocation() + "?debug");
+                    Page.getCurrent().getLocation() + "?debug=true");
         } else {
             layout = new MVerticalLayout(
                     new Header("WebSocket test app"),
